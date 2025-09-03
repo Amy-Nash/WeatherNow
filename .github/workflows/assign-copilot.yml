@@ -1,17 +1,18 @@
-name: Assign Copilot to Issues
+name: Assign Copilot on Label
 
 on:
   issues:
-    types: [opened]
+    types: [labeled]
 
 jobs:
   assign-copilot:
+    if: contains(github.event.label.name, 'copilot label')
     runs-on: ubuntu-latest
     steps:
       - name: Assign Copilot
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.COPILOT_PAT }}
           script: |
             const issue_number = context.issue.number;
             const owner = context.repo.owner;
