@@ -12,7 +12,7 @@ jobs:
       - name: Assign Copilot
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.COPILOT_PAT }}
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           script: |
             const issue_number = context.issue.number;
             const owner = context.repo.owner;
