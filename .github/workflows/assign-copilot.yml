@@ -23,4 +23,4 @@ jobs:
               repo,
               issue_number,
               assignees: ['github-copilot[bot]']
-            });
+            })
